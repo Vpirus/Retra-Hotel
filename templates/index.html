@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retra Hotel - Luxury Accommodations</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/templates/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar-left">
+        <div class="dropdown">
+          <button class="dropbtn">Our Rooms</button>
+          <div class="dropdown-content">
+            <a href="#">Deluxe Suite</a>
+            <a href="#">Executive Room</a>
+            <a href="#">Family Room</a>
+            <a href="#">Standard Room</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Offers</button>
+          <div class="dropdown-content">
+            <a href="#">Summer Special</a>
+            <a href="#">Weekend Getaway</a>
+            <a href="#">Honeymoon Package</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">About</button>
+          <div class="dropdown-content">
+            <a href="#">Our Story</a>
+            <a href="#">Awards</a>
+            <a href="#">Sustainability</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <a href="index.html">
+          <img
+            src="/templates/assets/6.png"
+            alt="RetraHotel Logo"
+            class="logo"
+          />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Gallery</a>
+        <a href="#" class="nav-link book-now">Book Now</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <button class="close-menu" aria-label="Close Menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">Our Rooms</button>
+        <div class="mobile-dropdown-content">
+          <a href="#">Deluxe Suite</a>
+          <a href="#">Executive Room</a>
+          <a href="#">Family Room</a>
+          <a href="#">Standard Room</a>
+        </div>
+      </div>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">Offers</button>
+        <div class="mobile-dropdown-content">
+          <a href="#">Summer Special</a>
+          <a href="#">Weekend Getaway</a>
+          <a href="#">Honeymoon Package</a>
+        </div>
+      </div>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">About</button>
+        <div class="mobile-dropdown-content">
+          <a href="#">Our Story</a>
+          <a href="#">Awards</a>
+          <a href="#">Sustainability</a>
+        </div>
+      </div>
+      <a href="#" class="mobile-nav-link">Contact</a>
+      <a href="#" class="mobile-nav-link">Gallery</a>
+      <a href="#" class="mobile-nav-link">Book Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="tagline-container">
+        <h1 class="tagline">
+          <span class="letter">E</span>
+          <span class="letter">x</span>
+          <span class="letter">p</span>
+          <span class="letter">e</span>
+          <span class="letter">r</span>
+          <span class="letter">i</span>
+          <span class="letter">e</span>
+          <span class="letter">n</span>
+          <span class="letter">c</span>
+          <span class="letter">e</span>
+          <span class="letter"> </span>
+          <span class="letter">L</span>
+          <span class="letter">u</span>
+          <span class="letter">x</span>
+          <span class="letter">u</span>
+          <span class="letter">r</span>
+          <span class="letter">y</span>
+        </h1>
+        <p class="sub-tagline">
+          Discover unparalleled comfort and elegance at RetraHotel. Your perfect
+          getaway awaits.
+        </p>
+        <a href="#" class="cta-button">Book Now</a>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+      <div class="booking-container">
+        <h2>Book Your Stay</h2>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="check-in">Check-In</label>
+              <input type="date" id="check-in" name="check-in" required />
+            </div>
+            <div class="form-group">
+              <label for="check-out">Check-Out</label>
+              <input type="date" id="check-out" name="check-out" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="adults">Adults</label>
+              <select id="adults" name="adults">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="children">Children</label>
+              <select id="children" name="children">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+          <div class="room-select">
+            <label for="room-type">Room Type</label>
+            <select id="room-type" name="room-type">
+              <option value="deluxe">Deluxe Suite</option>
+              <option value="executive">Executive Room</option>
+              <option value="family">Family Room</option>
+              <option value="standard">Standard Room</option>
+            </select>
+          </div>
+          <div class="price-summary">
+            <p><strong>Total:</strong> <span id="total-price">$500.00</span></p>
+          </div>
+          <button type="submit" class="submit-btn">
+            Check Availability <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="section-title">
+        <h2>Why Choose RetraHotel?</h2>
+      </div>
+      <div class="features-container">
+        <div class="feature-card">
+          <img
+            src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg"
+            alt="Luxury Rooms"
+            class="feature-img"
+          />
+          <div class="feature-content">
+            <h3 class="feature-title">Luxury Rooms</h3>
+            <p class="feature-text">
+              Experience the epitome of comfort with our elegantly designed
+              rooms and suites. Each room is meticulously crafted to provide the
+              perfect blend of luxury and functionality.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img
+            src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+            alt="World-Class Amenities"
+            class="feature-img"
+          />
+          <div class="feature-content">
+            <h3 class="feature-title">World-Class Amenities</h3>
+            <p class="feature-text">
+              Enjoy access to our state-of-the-art facilities, including a spa,
+              gym, and pool. Our amenities are designed to enhance your stay and
+              provide the ultimate relaxation experience.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img
+            src="https://images.pexels.com/photos/1334605/pexels-photo-1334605.jpeg"
+            alt="Exceptional Service"
+            class="feature-img"
+          />
+          <div class="feature-content">
+            <h3 class="feature-title">Exceptional Service</h3>
+            <p class="feature-text">
+              Our dedicated staff is committed to providing you with an
+              unforgettable stay. From personalized concierge services to 24/7
+              room service, we ensure your every need is met.
+            </p>
+            <a href="#" class="feature-link"
+              >Learn More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms-section">
+      <div class="section-title">
+        <h2>Our Rooms</h2>
+      </div>
+      <div class="rooms-container">
+        <div class="room-card">
+          <img
+            src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg"
+            alt="Deluxe Suite"
+            class="room-img"
+          />
+          <div class="room-price">$250/night</div>
+          <div class="room-content">
+            <h3 class="room-title">Deluxe Suite</h3>
+            <div class="room-features">
+              <div class="room-feature">
+                <i class="fas fa-bed"></i> 1 King Bed
+              </div>
+              <div class="room-feature">
+                <i class="fas fa-user"></i> 2 Guests
+              </div>
+            </div>
+            <p class="room-text">
+              Indulge in luxury with our spacious Deluxe Suite, featuring a
+              private balcony and stunning views. This premium accommodation
+              offers a king-size bed, elegant furnishings, and a marble bathroom
+              with a deep soaking tub.
+            </p>
+            <a href="#" class="room-link">Book Now</a>
+          </div>
+        </div>
+        <div class="room-card">
+          <img
+            src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg"
+            alt="Executive Room"
+            class="room-img"
+          />
+          <div class="room-price">$200/night</div>
+          <div class="room-content">
+            <h3 class="room-title">Executive Room</h3>
+            <div class="room-features">
+              <div class="room-feature">
+                <i class="fas fa-bed"></i> 1 Queen Bed
+              </div>
+              <div class="room-feature">
+                <i class="fas fa-user"></i> 2 Guests
+              </div>
+            </div>
+            <p class="room-text">
+              Perfect for business travelers, our Executive Room offers a
+              comfortable workspace and modern amenities. Enjoy high-speed
+              internet, a spacious desk, and premium bedding for a productive
+              and restful stay.
+            </p>
+            <a href="#" class="room-link">Book Now</a>
+          </div>
+        </div>
+        <div class="room-card">
+          <img
+            src="https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg"
+            alt="Family Room"
+            class="room-img"
+          />
+          <div class="room-price">$300/night</div>
+          <div class="room-content">
+            <h3 class="room-title">Family Room</h3>
+            <div class="room-features">
+              <div class="room-feature">
+                <i class="fas fa-bed"></i> 2 Queen Beds
+              </div>
+              <div class="room-feature">
+                <i class="fas fa-user"></i> 4 Guests
+              </div>
+            </div>
+            <p class="room-text">
+              Ideal for families, this room offers ample space and kid-friendly
+              amenities. With two queen beds and a comfortable seating area,
+              everyone will have room to relax after a day of adventures.
+            </p>
+            <a href="#" class="room-link">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-title">
+        <h2>What Our Guests Say</h2>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial-slider">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              RetraHotel exceeded all our expectations. The service was
+              impeccable, and the rooms were luxurious. The staff went above and
+              beyond to make our anniversary special with champagne and
+              chocolates. We can't wait to come back!
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+                alt="John Doe"
+                class="author-img"
+              />
+              <div class="author-info">
+                <p class="author-name">John Doe</p>
+                <p class="author-title">Travel Enthusiast</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots">
+          <span class="testimonial-dot active"></span>
+          <span class="testimonial-dot"></span>
+          <span class="testimonial-dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+      <div class="location-container">
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d144.9537353153166!3d-37.81627974202167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2a6e7f4b3c7!2sRetraHotel!5e0!3m2!1sen!2sau!4v1625090000000!5m2!1sen!2sau"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="location-info">
+          <h2 class="location-title">Our Location</h2>
+          <p class="location-text">
+            Located in the heart of the city, RetraHotel offers easy access to
+            major attractions, shopping, and dining.
+          </p>
+          <div class="location-features">
+            <div class="location-feature">
+              <i class="fas fa-map-marker-alt"></i> 123 Luxury Street,
+              Melbourne, Australia
+            </div>
+            <div class="location-feature">
+              <i class="fas fa-phone"></i> +61 3 1234 5678
+            </div>
+            <div class="location-feature">
+              <i class="fas fa-envelope"></i> info@retrahotel.com
+            </div>
+          </div>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="directions-btn"
+            >Get Directions <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <img
+            src="/templates/assets/7.png"
+            alt="RetraHotel Logo"
+            class="footer-logo"
+          />
+          <p class="footer-about-text">
+            RetraHotel is a luxury hotel offering world-class accommodations and
+            exceptional service. Book your stay with us today and experience the
+            ultimate in comfort and elegance.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Rooms</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-title">Contact Us</h3>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Luxury Street, Melbourne, Australia</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+61 3 1234 5678</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@retrahotel.com</p>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive exclusive offers and updates.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              name="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 RetraHotel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Navbar Shrink on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("shrink");
+        } else {
+          navbar.classList.remove("shrink");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const closeMenuBtn = document.querySelector(".close-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileNav.classList.add("open");
+      });
+
+      closeMenuBtn.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+      });
+
+      // Mobile Dropdown Toggle
+      const mobileDropdownBtns = document.querySelectorAll(
+        ".mobile-dropdown-btn"
+      );
+      mobileDropdownBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      });
+
+      // Letter Animation for Tagline
+      const letters = document.querySelectorAll(".letter");
+      letters.forEach((letter, index) => {
+        letter.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Calculate total price based on room selection and dates
+      function calculateTotal() {
+        const roomType = document.getElementById("room-type").value;
+        const checkIn = new Date(document.getElementById("check-in").value);
+        const checkOut = new Date(document.getElementById("check-out").value);
+
+        if (isNaN(checkIn.getTime()) || isNaN(checkOut.getTime())) {
+          return;
+        }
+
+        // Calculate number of nights
+        const timeDiff = Math.abs(checkOut.getTime() - checkIn.getTime());
+        const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        if (nights <= 0) {
+          document.getElementById("total-price").textContent = "$0.00";
+          return;
+        }
+
+        // Set price based on room type
+        let pricePerNight = 0;
+        switch (roomType) {
+          case "deluxe":
+            pricePerNight = 250;
+            break;
+          case "executive":
+            pricePerNight = 200;
+            break;
+          case "family":
+            pricePerNight = 300;
+            break;
+          case "standard":
+            pricePerNight = 150;
+            break;
+        }
+
+        const total = pricePerNight * nights;
+        document.getElementById("total-price").textContent = `$${total.toFixed(
+          2
+        )}`;
+      }
+
+      // Add event listeners to form elements
+      document
+        .getElementById("room-type")
+        .addEventListener("change", calculateTotal);
+      document
+        .getElementById("check-in")
+        .addEventListener("change", calculateTotal);
+      document
+        .getElementById("check-out")
+        .addEventListener("change", calculateTotal);
+
+      // Set minimum dates for check-in and check-out
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
+
+      const checkInInput = document.getElementById("check-in");
+      const checkOutInput = document.getElementById("check-out");
+
+      checkInInput.min = formatDate(today);
+      checkInInput.value = formatDate(today);
+
+      checkOutInput.min = formatDate(tomorrow);
+      checkOutInput.value = formatDate(tomorrow);
+
+      checkInInput.addEventListener("change", function () {
+        const selectedDate = new Date(this.value);
+        const nextDay = new Date(selectedDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+
+        checkOutInput.min = formatDate(nextDay);
+
+        if (new Date(checkOutInput.value) <= selectedDate) {
+          checkOutInput.value = formatDate(nextDay);
+        }
+
+        calculateTotal();
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Calculate initial total
+      calculateTotal();
+    </script>
+  </body>
+</html>
