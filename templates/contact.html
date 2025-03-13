@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retra Hotel - Contact Us</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      :root {
+        --primary-color: #6a5acd; /* Modern purple */
+        --secondary-color: #4b3d99;
+        --accent-color: #ffd700; /* Gold accent */
+        --text-color: #333;
+        --light-bg: #f8f9fa;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+        --border-radius: 12px;
+        --gradient-bg: linear-gradient(135deg, #6a5acd 0%, #4b3d99 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navbar */
+      #navbar {
+        position: fixed;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      #navbar.shrink {
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0.98);
+      }
+
+      .navbar-left,
+      .navbar-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-center .logo {
+        height: 60px;
+        transition: var(--transition);
+      }
+
+      #navbar.shrink .logo {
+        height: 50px;
+      }
+
+      /* Dropdown styles */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropbtn {
+        background: none;
+        color: var(--text-color);
+        padding: 10px 15px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        font-family: "Poppins", sans-serif;
+        transition: var(--transition);
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--white);
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+        z-index: 1;
+        padding: 10px 0;
+        top: 100%;
+        left: 0;
+      }
+
+      .dropdown-content a {
+        color: var(--text-color);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        color: var(--primary-color);
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown:hover .dropbtn {
+        color: var(--primary-color);
+      }
+
+      .nav-link {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 10px 15px;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .book-now {
+        background: var(--gradient-bg);
+        color: var(--white);
+        padding: 10px 20px;
+        border-radius: 30px;
+        margin-left: 10px;
+        box-shadow: 0 4px 15px rgba(106, 90, 205, 0.3);
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .book-now:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--text-color);
+      }
+
+      /* Mobile Navigation */
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--white);
+        z-index: 2000;
+        padding: 80px 20px 20px;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      .mobile-nav.open {
+        transform: translateX(0);
+      }
+
+      .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--text-color);
+        transition: var(--transition);
+      }
+
+      .close-menu:hover {
+        color: var(--primary-color);
+      }
+
+      .mobile-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        color: var(--text-color);
+        font-family: "Poppins", sans-serif;
+        transition: var(--transition);
+      }
+
+      .mobile-dropdown-content {
+        display: none;
+        padding-left: 15px;
+      }
+
+      .mobile-dropdown-content a {
+        display: block;
+        padding: 10px 0;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .mobile-dropdown-content a:hover {
+        color: var(--primary-color);
+      }
+
+      .mobile-nav-link {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 18px;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .mobile-nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .mobile-nav-link.active {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      /* Page Header */
+      .page-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg")
+            center/cover no-repeat;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        padding-top: 90px;
+      }
+
+      .header-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .header-content p {
+        font-size: 1.2rem;
+        animation: fadeInUp 1s ease 0.3s;
+        animation-fill-mode: both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Contact Information Section */
+      .contact-info-section {
+        padding: 80px 20px;
+        background-color: var(--white);
+      }
+
+      .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-card {
+        background-color: var(--light-bg);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .contact-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .contact-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .contact-card p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* Contact Form Section */
+      .contact-form-section {
+        padding: 80px 20px;
+        background-color: var(--light-bg);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      .contact-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-form-container {
+        flex: 1 1 60%;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .form-group {
+        flex: 1;
+      }
+
+      .form-group label {
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+        font-family: "Poppins", sans-serif;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--primary-color);
+        outline: none;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .checkbox-group input {
+        width: auto;
+      }
+
+      .checkbox-group label {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 0;
+      }
+
+      .submit-btn {
+        background: var(--gradient-bg);
+        color: var(--white);
+        padding: 15px 30px;
+        border: none;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        align-self: flex-start;
+      }
+
+      .submit-btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      .contact-image {
+        flex: 1 1 35%;
+      }
+
+      .contact-image img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 80px 20px;
+        background-color: var(--white);
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        cursor: pointer;
+      }
+
+      .faq-question h3 {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+      }
+
+      .faq-toggle {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-answer p {
+        font-size: 1rem;
+        color: #666;
+        padding: 15px 0;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 200px;
+      }
+
+      /* Map Section */
+      .location-section {
+        padding: 80px 20px;
+        background-color: var(--light-bg);
+      }
+
+      .location-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .location-map {
+        flex: 1 1 60%;
+        height: 400px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .location-info {
+        flex: 1 1 35%;
+      }
+
+      .location-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .location-text {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .location-features {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .location-feature {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .location-feature i {
+        color: var(--primary-color);
+      }
+
+      .directions-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: var(--gradient-bg);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: var(--transition);
+        margin-top: 20px;
+      }
+
+      .directions-btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #2c2442 0%, #1a1630 100%);
+        color: var(--white);
+        padding: 80px 20px 20px;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
+
+      .footer-logo {
+        height: 60px;
+        margin-bottom: 20px;
+      }
+
+      .footer-about-text {
+        font-size: 0.95rem;
+        color: #ccc;
+        line-height: 1.8;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-5px);
+      }
+
+      .footer-title {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-title::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        color: #ccc;
+      }
+
+      .contact-item i {
+        color: var(--primary-color);
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        font-size: 14px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .newsletter-btn {
+        padding: 0 15px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .newsletter-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #999;
+      }
+
+      /* Back to Top Button */
+      #back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-bg);
+        color: var(--white);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 100;
+        transition: var(--transition);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      #back-to-top:hover {
+        background: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .navbar-left,
+        .navbar-right {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .navbar-center {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .form-row {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .contact-wrapper {
+          flex-direction: column;
+        }
+
+        .contact-form-container {
+          flex: 1 1 100%;
+        }
+
+        .contact-image {
+          flex: 1 1 100%;
+        }
+
+        .location-container {
+          flex-direction: column;
+        }
+
+        .location-map {
+          flex: 1 1 100%;
+          height: 300px;
+        }
+
+        .location-info {
+          flex: 1 1 100%;
+        }
+
+        .header-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .submit-btn {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-header {
+          height: 40vh;
+        }
+
+        .header-content h1 {
+          font-size: 2rem;
+        }
+
+        .contact-info-section,
+        .contact-form-section,
+        .faq-section,
+        .location-section {
+          padding: 50px 20px;
+        }
+
+        .contact-card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="navbar-left">
+        <div class="dropdown">
+          <button class="dropbtn">Our Rooms</button>
+          <div class="dropdown-content">
+            <a href="rooms.html">Deluxe Suite</a>
+            <a href="rooms.html">Executive Room</a>
+            <a href="rooms.html">Family Room</a>
+            <a href="rooms.html">Standard Room</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Offers</button>
+          <div class="dropdown-content">
+            <a href="offers.html">Summer Special</a>
+            <a href="offers.html">Weekend Getaway</a>
+            <a href="offers.html">Honeymoon Package</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">About</button>
+          <div class="dropdown-content">
+            <a href="about.html">Our Story</a>
+            <a href="about.html">Awards</a>
+            <a href="about.html">Sustainability</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <a href="index.html">
+          <img
+            src="/templates/assets/6.png"
+            alt="RetraHotel Logo"
+            class="logo"
+          />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="booking.html" class="nav-link book-now">Book Now</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <button class="close-menu" aria-label="Close Menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">Our Rooms</button>
+        <div class="mobile-dropdown-content">
+          <a href="rooms.html">Deluxe Suite</a>
+          <a href="rooms.html">Executive Room</a>
+          <a href="rooms.html">Family Room</a>
+          <a href="rooms.html">Standard Room</a>
+        </div>
+      </div>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">Offers</button>
+        <div class="mobile-dropdown-content">
+          <a href="offers.html">Summer Special</a>
+          <a href="offers.html">Weekend Getaway</a>
+          <a href="offers.html">Honeymoon Package</a>
+        </div>
+      </div>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">About</button>
+        <div class="mobile-dropdown-content">
+          <a href="about.html">Our Story</a>
+          <a href="about.html">Awards</a>
+          <a href="about.html">Sustainability</a>
+        </div>
+      </div>
+      <a href="contact.html" class="mobile-nav-link active">Contact</a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+      <a href="booking.html" class="mobile-nav-link">Book Now</a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="header-content">
+        <h1>Contact Us</h1>
+        <p>We're here to help with any questions you may have</p>
+      </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="contact-info-section">
+      <div class="container">
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Our Location</h3>
+            <p>123 Luxury Street</p>
+            <p>Melbourne, Australia</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Call Us</h3>
+            <p>Reservations: +61 3 1234 5678</p>
+            <p>General Inquiries: +61 3 1234 5679</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email Us</h3>
+            <p>info@retrahotel.com</p>
+            <p>reservations@retrahotel.com</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Office Hours</h3>
+            <p>Reservations: 24/7</p>
+            <p>Front Desk: 24/7</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Send Us a Message</h2>
+          <p>We'll get back to you as soon as possible</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-form-container">
+            <form id="contact-form" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name*</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address*</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">Subject*</label>
+                  <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a subject</option>
+                    <option value="reservation">Reservation Inquiry</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="special-request">Special Request</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message*</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <div class="checkbox-group">
+                  <input type="checkbox" id="subscribe" name="subscribe" />
+                  <label for="subscribe"
+                    >Subscribe to our newsletter for exclusive offers and
+                    updates</label
+                  >
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Send Message <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-image">
+            <img
+              src="https://images.pexels.com/photos/1334605/pexels-photo-1334605.jpeg"
+              alt="Retra Hotel Staff"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find quick answers to common questions</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What are the check-in and check-out times?</h3>
+              <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Check-in time is 3:00 PM and check-out time is 11:00 AM. Early
+                check-in and late check-out may be available upon request,
+                subject to availability and additional charges.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Is breakfast included in the room rate?</h3>
+              <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Breakfast is included in select room packages. Please check your
+                reservation details or contact our reservations team to confirm
+                if breakfast is included in your stay.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do you offer airport transfers?</h3>
+              <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, we offer airport transfer services for an additional fee.
+                Please contact our concierge at least 24 hours in advance to
+                arrange transportation.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Is there a cancellation fee?</h3>
+              <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Our standard cancellation policy allows free cancellation up to
+                48 hours before arrival. Cancellations made within 48 hours of
+                arrival may be subject to a one-night charge. Special rates and
+                promotions may have different cancellation policies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="location-section">
+      <div class="location-container">
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093747!2d144.9537353153166!3d-37.81627974202167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2a6e7f4b3c7!2sRetraHotel!5e0!3m2!1sen!2sau!4v1625090000000!5m2!1sen!2sau"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="location-info">
+          <h2 class="location-title">Find Us</h2>
+          <p class="location-text">
+            Located in the heart of Melbourne, RetraHotel offers easy access to
+            major attractions, shopping districts, and public transportation.
+          </p>
+          <div class="location-features">
+            <div class="location-feature">
+              <i class="fas fa-map-marker-alt"></i> 123 Luxury Street,
+              Melbourne, Australia
+            </div>
+            <div class="location-feature">
+              <i class="fas fa-car"></i> Valet parking available
+            </div>
+            <div class="location-feature">
+              <i class="fas fa-train"></i> 5 minutes walk from Central Station
+            </div>
+          </div>
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            class="directions-btn"
+            >Get Directions <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <img
+            src="/templates/assets/7.png"
+            alt="RetraHotel Logo"
+            class="footer-logo"
+          />
+          <p class="footer-about-text">
+            RetraHotel is a luxury hotel offering world-class accommodations and
+            exceptional service. Book your stay with us today and experience the
+            ultimate in comfort and elegance.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-title">Contact Us</h3>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Luxury Street, Melbourne, Australia</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+61 3 1234 5678</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>info@retrahotel.com</p>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive exclusive offers and updates.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              name="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 RetraHotel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Navbar Shrink on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("shrink");
+        } else {
+          navbar.classList.remove("shrink");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const mobileNav = document.querySelector(".mobile-nav");
+      const closeMenuBtn = document.querySelector(".close-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileNav.classList.add("open");
+      });
+
+      closeMenuBtn.addEventListener("click", () => {
+        mobileNav.classList.remove("open");
+      });
+
+      // Mobile Dropdown Toggle
+      const mobileDropdownBtns = document.querySelectorAll(
+        ".mobile-dropdown-btn"
+      );
+
+      mobileDropdownBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      });
+
+      // Contact Form Submission
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simple form validation
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          if (!name || !email || !message) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+
+          // Show success message (in a real implementation, you would send the form data to a server)
+          alert("Thank you for your message! We will get back to you shortly.");
+          contactForm.reset();
+        });
+      }
+
+      // FAQ Toggles
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+
+      faqToggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const faqItem = toggle.closest(".faq-item");
+          const faqAnswer = faqItem.querySelector(".faq-answer");
+          const icon = toggle.querySelector("i");
+
+          // Toggle active class
+          faqItem.classList.toggle("active");
+
+          // Toggle icon
+          if (icon.classList.contains("fa-plus")) {
+            icon.classList.remove("fa-plus");
+            icon.classList.add("fa-minus");
+          } else {
+            icon.classList.remove("fa-minus");
+            icon.classList.add("fa-plus");
+          }
+
+          // Toggle answer visibility
+          if (faqAnswer.style.maxHeight) {
+            faqAnswer.style.maxHeight = null;
+          } else {
+            faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+          }
+        });
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
